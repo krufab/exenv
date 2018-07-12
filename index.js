@@ -18,13 +18,16 @@
 
 		canUseDOM: canUseDOM,
 
-		canUseWorkers: typeof Worker !== 'undefined',
-
 		canUseEventListeners:
 			canUseDOM && !!(window.addEventListener || window.attachEvent),
 
-		canUseViewport: canUseDOM && !!window.screen
+		canUseLocalStorage: 'undefined' !== localStorage,
 
+		canUseSessionStorage: 'undefined' !== sessionStorage,
+
+		canUseViewport: canUseDOM && !!window.screen,
+
+		canUseWorkers: 'undefined' !== typeof Worker
 	};
 
 	if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
