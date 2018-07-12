@@ -9,7 +9,7 @@
 	'use strict';
 
 	var canUseDOM = !!(
-		typeof window !== 'undefined' &&
+        'undefined' !== typeof window &&
 		window.document &&
 		window.document.createElement
 	);
@@ -18,13 +18,16 @@
 
 		canUseDOM: canUseDOM,
 
-		canUseWorkers: typeof Worker !== 'undefined',
-
 		canUseEventListeners:
 			canUseDOM && !!(window.addEventListener || window.attachEvent),
 
-		canUseViewport: canUseDOM && !!window.screen
+		canUseLocalStorage: 'undefined' !== typeof localStorage,
 
+		canUseSessionStorage: 'undefined' !== typeof sessionStorage,
+
+		canUseViewport: canUseDOM && !!window.screen,
+
+		canUseWorkers: 'undefined' !== typeof Worker
 	};
 
 	if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
