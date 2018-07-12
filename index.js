@@ -9,7 +9,7 @@
 	'use strict';
 
 	var canUseDOM = !!(
-		typeof window !== 'undefined' &&
+        'undefined' !== typeof window &&
 		window.document &&
 		window.document.createElement
 	);
@@ -21,9 +21,9 @@
 		canUseEventListeners:
 			canUseDOM && !!(window.addEventListener || window.attachEvent),
 
-		canUseLocalStorage: 'undefined' !== localStorage,
+		canUseLocalStorage: 'undefined' !== typeof localStorage,
 
-		canUseSessionStorage: 'undefined' !== sessionStorage,
+		canUseSessionStorage: 'undefined' !== typeof sessionStorage,
 
 		canUseViewport: canUseDOM && !!window.screen,
 
